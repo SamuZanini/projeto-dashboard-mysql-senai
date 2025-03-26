@@ -1,6 +1,7 @@
 "use client";
 
 import ChartOverview from "@/components/chart";
+import Cores from "@/components/cores";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import {
   Card,
@@ -54,6 +55,7 @@ export default function Home() {
 
       <section className="mt-4 flex flex-col md:flex-row gap-4">
         <ChartOverview />
+        <Cores />
       </section>
     </main>
   );

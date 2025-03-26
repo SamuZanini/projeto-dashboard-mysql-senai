@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "../ui/chart";
@@ -37,11 +39,11 @@ export default function ChartOverview() {
 
   const chartConfig = {
     quantidadePlastico: {
-      label: "Total Plastico",
+      label: "Qtd. Plástico",
       color: "#FF6B35",
     },
     quantidadeMetal: {
-      label: "Total Metal",
+      label: "Qtd. Metal",
       color: "#FB986A",
     },
   } satisfies ChartConfig;
@@ -80,7 +82,10 @@ export default function ChartOverview() {
               tick={{ fontSize: 12, dx: 5 }}
               padding={{ left: 10, right: 10 }}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip
+              content={<ChartTooltipContent indicator="dashed" />}
+            />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar
               dataKey="quantidadePlastico"
               fill={chartConfig.quantidadePlastico.color}

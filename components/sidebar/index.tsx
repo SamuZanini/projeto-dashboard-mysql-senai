@@ -100,7 +100,7 @@ export function Sidebar() {
             </SheetTrigger>
 
             <SheetContent side="left" className="sm:max-w-x">
-              <nav className="grid gap-6 text-lg font-medium">
+              <nav className="grid gap-6 text-lg font-medium m-3">
                 <Link
                   href="/"
                   className="flex h-10 w-10 bg-primary rounded-full text-lg items-center justify-center text-primary-foreground md:text-base gap-2"
