@@ -15,6 +15,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "../ui/tooltip";
+import { ModeToggle } from "../mode-toggle";
 
 export function Sidebar() {
   return (
@@ -22,13 +23,7 @@ export function Sidebar() {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 border-r bg-background sm:flex">
         <nav className="flex flex-col items-center gap-4 px-2 py-5">
           <TooltipProvider>
-            <Link
-              href="/"
-              className="flex h-9 w-9 shrink-0 items-center justify-center bg-primary text-primary-foreground rounded-full"
-            >
-              <Package className="h-5 w-5" />
-              <span className="sr-only">Dashboard Separador de Peças</span>
-            </Link>
+            <ModeToggle enableDirectToggle />
 
             <Tooltip>
               <TooltipTrigger asChild>
@@ -101,14 +96,7 @@ export function Sidebar() {
 
             <SheetContent side="left" className="sm:max-w-x">
               <nav className="grid gap-6 text-lg font-medium m-3">
-                <Link
-                  href="/"
-                  className="flex h-10 w-10 bg-primary rounded-full text-lg items-center justify-center text-primary-foreground md:text-base gap-2"
-                  prefetch={false}
-                >
-                  <Package className="h-5 w-5 transition-all" />
-                  <span className="sr-only">Logo</span>
-                </Link>
+                <ModeToggle enableDirectToggle />
 
                 <Link
                   href="/inicio"

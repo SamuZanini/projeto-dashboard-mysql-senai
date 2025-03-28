@@ -1,6 +1,6 @@
 "use client";
 
-import { AnchorIcon } from "lucide-react";
+import { BarChart2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   ChartConfig,
@@ -40,26 +40,26 @@ export default function ChartOverview() {
   const chartConfig = {
     quantidadePlastico: {
       label: "Qtd. Plástico",
-      color: "#FF6B35",
+      color: "#00c5bb",
     },
     quantidadeMetal: {
       label: "Qtd. Metal",
-      color: "#FB986A",
+      color: "#cccccc",
     },
   } satisfies ChartConfig;
 
   return (
-    <Card className="w-full md:w-1/2 md:max-w-[600px]">
+    <Card className="flex-5/12">
       <CardHeader>
         <div className="flex items-center justify-center">
-          <CardTitle className="text-lg sm:text-xl text-white">
+          <CardTitle className="text-lg sm:text-xl">
             Total de Peças Produzidas
           </CardTitle>
-          <AnchorIcon className="ml-auto h-4 w-4" />
+          <BarChart2 className="ml-auto h-4 w-4" />
         </div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="py-8">
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
           <BarChart
             data={chartData}

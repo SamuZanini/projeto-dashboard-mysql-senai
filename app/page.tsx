@@ -19,9 +19,7 @@ export default function Home() {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-center">
-              <CardTitle className="text-lg sm:text-xl text-white select-none">
-                Produção
-              </CardTitle>
+              <CardTitle className="text-lg sm:text-xl">Produção</CardTitle>
               <Pickaxe className="ml-auto w-4 h-4" />
             </div>
 
@@ -38,7 +36,7 @@ export default function Home() {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-center">
-              <CardTitle className="text-lg sm:text-xl text-white select-none">
+              <CardTitle className="text-lg sm:text-xl">
                 Total de Peças
               </CardTitle>
               <Factory className="ml-auto w-4 h-4" />
