@@ -22,28 +22,28 @@ import {
 
 export default function Cores() {
   const chartData = [
-    { browser: "chrome", pecas: 275, fill: "var(--color-chrome)" },
-    { browser: "safari", pecas: 200, fill: "var(--color-safari)" },
-    { browser: "firefox", pecas: 287, fill: "var(--color-firefox)" },
-    { browser: "edge", pecas: 173, fill: "var(--color-edge)" },
+    { browser: "amarelo", pecas: 275, fill: "var(--color-amarelo)" },
+    { browser: "vermelho", pecas: 200, fill: "var(--color-vermelho)" },
+    { browser: "verde", pecas: 287, fill: "var(--color-verde)" },
+    { browser: "azul", pecas: 173, fill: "var(--color-azul)" },
   ];
   const chartConfig = {
     pecas: {
       label: "Peças",
     },
-    chrome: {
+    amarelo: {
       label: "Amarelo",
       color: "#f2b611",
     },
-    safari: {
+    vermelho: {
       label: "Vermelho",
       color: "#b81d2f",
     },
-    firefox: {
+    verde: {
       label: "Verde",
       color: "#12732f",
     },
-    edge: {
+    azul: {
       label: "Azul",
       color: "#3029c2",
     },

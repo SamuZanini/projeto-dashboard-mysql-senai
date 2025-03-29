@@ -14,6 +14,12 @@ import Link from "next/link";
 import CenterUnderline from "@/fancy/components/text/underline-center";
 import { motion } from "motion/react";
 
+import {
+  AnimatedSpan,
+  Terminal,
+  TypingAnimation,
+} from "@/components/magicui/terminal";
+
 export default function Inicio() {
   return (
     <main className="sm:ml-14 p-4 min-h-screen">
@@ -114,6 +120,59 @@ export default function Inicio() {
               </Link>
             </CardContent>
           </Card>
+        </motion.div>
+      </section>
+
+      <section className="grid grid-cols-2 gap-4 py-3">
+        <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.7 }}
+        >
+          <Terminal>
+            <TypingAnimation>&gt; Tecnologias Utilizadas</TypingAnimation>
+
+            <AnimatedSpan delay={1500} className="text-green-500">
+              <span>✔ shadcn/ui</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={2000} className="text-green-500">
+              <span>✔ Next.js.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={2500} className="text-green-500">
+              <span>✔ Tailwind CSS.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={3000} className="text-green-500">
+              <span>✔ MySQL.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={3500} className="text-green-500">
+              <span>✔ Magic UI.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={4000} className="text-green-500">
+              <span>✔ Fancy Components.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={5500} className="text-green-500">
+              <span>✔ Installing dependencies.</span>
+            </AnimatedSpan>
+
+            <AnimatedSpan delay={6000} className="text-blue-500">
+              <span>ℹ Updated 1 file:</span>
+              <span className="pl-2">- lib/brain.ts</span>
+            </AnimatedSpan>
+
+            <TypingAnimation delay={6500} className="text-muted-foreground">
+              Success! Project initialization completed.
+            </TypingAnimation>
+
+            <TypingAnimation delay={7000} className="text-muted-foreground">
+              You may now start coding.
+            </TypingAnimation>
+          </Terminal>
         </motion.div>
       </section>
     </main>
