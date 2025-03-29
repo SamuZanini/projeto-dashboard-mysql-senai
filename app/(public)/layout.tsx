@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Chico App",
+  title: "Dashboard SENAI",
   description: "Uma maneira moderna de iniciar projetos Next.js",
 };
 
