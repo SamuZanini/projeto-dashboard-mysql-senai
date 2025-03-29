@@ -1,73 +1,78 @@
-# Create Chico App
+# Dashboard de Produção - SENAI Félix Guisard
 
-Uma maneira moderna de iniciar projetos Next.js com configurações pré-definidas e componentes úteis.
+Este projeto consiste em um dashboard interativo desenvolvido para visualização de dados de produção, como parte das atividades acadêmicas da Escola e Faculdade SENAI "Félix Guisard".
 
-## Características
+## 📋 Sobre o Projeto
 
-- 🏃‍♂️ Next.js 15 com App Router e Turbopack
-- 💨 Tailwind V4 para estilização
-- 🎨 Tema claro/escuro com next-themes
-- 🧱 Componentes shadcn/ui pré-configurados
-- 🎯 Tipagem forte com TypeScript
-- 🧹 Formatação com Biome
+O dashboard foi desenvolvido para monitorar e visualizar dados de um sistema de produção, oferecendo insights importantes sobre o processo produtivo através de gráficos e métricas em tempo real.
 
-## Início Rápido
+### 🚀 Funcionalidades
+
+- Visualização de dados de produção em tempo real
+- Gráficos interativos mostrando diferentes métricas
+- Sistema de categorização por cores
+- Interface responsiva e moderna
+- Tema claro/escuro
+
+### 🛠️ Tecnologias Utilizadas
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- MySQL
+- Recharts (para visualização de dados)
+- Shadcn/ui (componentes de interface)
+
+## 💻 Pré-requisitos
+
+- Node.js
+- npm ou yarn ou bun
+
+## 🔧 Instalação
+
+1. Clone o repositório
 
 ```bash
-bunx --use-bun create-chico-app
-cd meu-projeto
+git clone "https://github.com/SamuZanini/projeto-dashboard-senai.git"
+```
+
+2. Instale as dependências
+
+```bash
+npm install
+# ou
+yarn install
+# ou
 bun install
+```
+
+3. Inicie o servidor de desenvolvimento
+
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
 bun dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+## 📊 Estrutura do Projeto
 
-## Adicionando Componentes shadcn/ui
+- `/app` - Páginas e rotas da aplicação
+- `/components` - Componentes reutilizáveis
+- `/lib` - Utilitários e funções auxiliares
+- `/providers` - Provedores de contexto (tema, etc.)
 
-⚠️ **Importante**: Ao adicionar novos componentes do shadcn/ui, sempre use a flag `@canary`:
+## 🎓 Projeto Acadêmico
 
-```bash
-bunx --bun shadcn@canary add button
-```
+Este projeto foi desenvolvido como parte das atividades acadêmicas do SENAI Felix Guisard, com o objetivo de aplicar conhecimentos em desenvolvimento web e visualização de dados.
 
-Não use `@latest`, pois pode causar incompatibilidades com as versões mais recentes do Next.js e Tailwind CSS.
+## 🧙‍♂️ Equipe
 
-## Estrutura do Projeto
+- Samuel Zanini Campos Vanoni (https://github.com/SamuZanini)
+- Murilo Marques Dantas Vieira (https://github.com/Murilomarques999)
+- João Vitor Nogueira Alves (https://github.com/Nogueirajv0078)
 
-```
-├── app/                # Rotas e páginas
-├── components/         # Componentes React
-│   ├── ui/            # Componentes shadcn/ui
-│   └── magicui/       # Componentes com efeitos especiais
-├── providers/         # Providers React (tema, etc)
-└── lib/              # Utilitários e configurações
-```
+---
 
-## Providers Disponíveis
-
-O projeto já vem com os seguintes providers configurados:
-
-- `ThemeProvider`: Gerenciamento de tema (claro/escuro)
-- `TooltipProvider`: Gerenciamento de tooltips
-
-Para adicionar novos providers, utilize o arquivo `providers/provider-wrapper.tsx`.
-
-## Scripts Disponíveis
-
-- `bun dev`: Inicia o servidor de desenvolvimento
-- `bun build`: Gera a build de produção
-- `bun start`: Inicia o servidor de produção
-- `bun lint`: Executa a verificação de linting
-
-## Aprenda Mais
-
-Para saber mais sobre as tecnologias utilizadas:
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind V4](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Bun Runtime](https://bun.sh)
-
-## Deploy
-
-A maneira mais fácil de fazer deploy é usando a [Plataforma Vercel](https://vercel.com/new). Confira a [documentação de deploy do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para mais detalhes.
+Desenvolvido com muito ❤️ e ☕ para a Escola e Faculdade SENAI "Félix Guisard".

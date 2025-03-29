@@ -2,7 +2,7 @@
 
 import ChartOverview from "@/components/chart";
 import Cores from "@/components/cores";
-import { AuroraText } from "@/components/magicui/aurora-text";
+import LinearChartOverview from "@/components/linearChart";
 import {
   Card,
   CardContent,
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Factory, Pickaxe } from "lucide-react";
 
-export default function Home() {
+export default function Dados() {
   return (
     <main className="sm:ml-14 p-4">
       <section className="grid grid-cols-2 gap-4">
@@ -54,6 +54,10 @@ export default function Home() {
       <section className="mt-4 flex flex-col md:flex-row gap-4">
         <ChartOverview />
         <Cores />
+      </section>
+
+      <section className="mt-4 flex gap-4">
+        <LinearChartOverview />
       </section>
     </main>
   );
