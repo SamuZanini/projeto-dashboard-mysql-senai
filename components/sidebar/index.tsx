@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "../ui/sheet";
 import {
   Archive,
   DatabaseIcon,
@@ -16,6 +16,7 @@ import {
   TooltipContent,
 } from "../ui/tooltip";
 import { ModeToggle } from "../mode-toggle";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function Sidebar() {
   return (
@@ -87,6 +88,10 @@ export function Sidebar() {
       <div className="sm:hidden flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
         <header className="sticky top-0 z-30 flex h-14 items-center px-4 border-b bg-background gap-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <Sheet>
+            <VisuallyHidden>
+              <SheetTitle className="sr-only"></SheetTitle>
+            </VisuallyHidden>
+
             <SheetTrigger asChild>
               <Button size="icon" variant="outline" className="sm-hidden">
                 <PanelBottom className="w-5 h-5" />
@@ -136,7 +141,6 @@ export function Sidebar() {
               </nav>
             </SheetContent>
           </Sheet>
-          <h2>Menu</h2>
         </header>
       </div>
     </div>

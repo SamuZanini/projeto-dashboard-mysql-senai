@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Dashboard SENAI",
-  description: "Uma maneira moderna de iniciar projetos Next.js",
+  description: "Dashboard para o Projeto Integrador - 1",
 };
 
 export default function RootLayout({
