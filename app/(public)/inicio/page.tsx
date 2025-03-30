@@ -20,9 +20,6 @@ import {
   TypingAnimation,
 } from "@/components/magicui/terminal";
 
-import Image from "next/image";
-import cafeImage from "@/images/image.png";
-
 export default function Inicio() {
   return (
     <main className="sm:ml-14 p-4 min-h-screen">
@@ -132,7 +129,7 @@ export default function Inicio() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 0.7 }}
         >
-          <Card>
+          <Card className="relative">
             <CardHeader>
               <div className="flex items-center justify-center">
                 <CardTitle className="text-lg sm:text-xl">
@@ -156,7 +153,7 @@ export default function Inicio() {
               </p>
             </CardContent>
 
-            <section className="grid grid-cols-2 gap-4">
+            <section className="grid grid-cols-2 gap-4 pb-50">
               <div className="col-span-2 lg:col-span-1 grid grid-cols gap-4 py-4 sm:ml-4 p-4 overflow-x-auto rounded-xl">
                 <Terminal className="w-full min-w-[300px] sm:min-w-[400px] lg:min-w-[500px] rounded-xl shadow-[0_20px_50px_rgba(250,_128,_114,_0.7)] dark:shadow-none">
                   <TypingAnimation>&gt; Tecnologias Utilizadas</TypingAnimation>
@@ -200,15 +197,20 @@ export default function Inicio() {
                 </Terminal>
               </div>
               <div className="col-span-2 lg:col-span-1 flex items-center justify-center py-4">
-                <Image
-                  src={cafeImage.src}
+                <img
+                  src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png"
                   alt="cafe"
-                  width={340}
-                  height={340}
                   className="w-auto h-auto"
                 />
               </div>
             </section>
+            <div className="absolute bottom-0 left-0 right-0">
+              <img
+                src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=120&section=footer"
+                alt="wave"
+                className="w-screen overflow-x-auto rounded-b-xl"
+              />
+            </div>
           </Card>
         </motion.div>
       </section>
