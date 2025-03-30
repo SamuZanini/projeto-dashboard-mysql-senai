@@ -95,9 +95,9 @@ export default function Sistema() {
         transition={{ duration: 1.7 }}
         className="flex justify-center items-center gap-4 py-7 mb-8"
       >
-        <Carousel className="w-full max-w-xl">
+        <Carousel className="w-full max-w-4xl">
           <CarouselContent>
-            <CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-8">
@@ -108,7 +108,7 @@ export default function Sistema() {
                 </Card>
               </div>
             </CarouselItem>
-            <CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-8">
@@ -119,7 +119,18 @@ export default function Sistema() {
                 </Card>
               </div>
             </CarouselItem>
-            <CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center p-8">
+                    <span className="text-4xl font-semibold">
+                      substituir por imagem do sistema
+                    </span>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-8">
