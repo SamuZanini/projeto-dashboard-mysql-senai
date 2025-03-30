@@ -70,9 +70,7 @@ export default function Cores() {
             <AvatarFallback>AM</AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-sm sm:text-base font-semibold">
-              nome da cor no banco
-            </p>
+            <p className="text-sm sm:text-base font-semibold">Amarelo</p>
             <span className="text-[14px] sm:text-sm">
               quantidade total do banco
             </span>
@@ -85,9 +83,7 @@ export default function Cores() {
             <AvatarFallback>VM</AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-sm sm:text-base font-semibold">
-              nome da cor no banco
-            </p>
+            <p className="text-sm sm:text-base font-semibold">Vermelho</p>
             <span className="text-[14px] sm:text-sm">
               quantidade total do banco
             </span>
@@ -100,9 +96,7 @@ export default function Cores() {
             <AvatarFallback>VD</AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-sm sm:text-base font-semibold">
-              nome da cor no banco
-            </p>
+            <p className="text-sm sm:text-base font-semibold">Verde</p>
             <span className="text-[14px] sm:text-sm">
               quantidade total do banco
             </span>
@@ -115,9 +109,7 @@ export default function Cores() {
             <AvatarFallback>AZ</AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-sm sm:text-base font-semibold">
-              nome da cor no banco
-            </p>
+            <p className="text-sm sm:text-base font-semibold">Azul</p>
             <span className="text-[14px] sm:text-sm">
               quantidade total do banco
             </span>
