@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Pencil, User } from "lucide-react";
+import { Pencil, Target, User } from "lucide-react";
 import TextRotate from "@/fancy/components/text/text-rotate";
 import Link from "next/link";
 
@@ -19,6 +19,9 @@ import {
   Terminal,
   TypingAnimation,
 } from "@/components/magicui/terminal";
+
+import Image from "next/image";
+import cafeImage from "@/images/image.png";
 
 export default function Inicio() {
   return (
@@ -75,10 +78,10 @@ export default function Inicio() {
                 <CenterUnderline label="☕ Samuel Zanini Campos Vanoni" />
               </Link>
               <Link className="" href="https://github.com/Nogueirajv0078">
-                <CenterUnderline label="☕ João Vitor Nogueira Alves Murilo" />
+                <CenterUnderline label="☕ João Vitor Nogueira Alves" />
               </Link>
               <Link className="" href="https://github.com/Murilomarques999">
-                <CenterUnderline label="☕ Marques Dantas Vieira" />
+                <CenterUnderline label="☕ Murilo Marques Dantas Vieira" />
               </Link>
             </CardContent>
           </Card>
@@ -87,7 +90,7 @@ export default function Inicio() {
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.7 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
         >
           <Card>
             <CardHeader>
@@ -123,56 +126,90 @@ export default function Inicio() {
         </motion.div>
       </section>
 
-      <section className="grid grid-cols-2 gap-4 py-3">
+      <section className="grid grid-cols gap-4 py-3">
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 0.7 }}
         >
-          <Terminal>
-            <TypingAnimation>&gt; Tecnologias Utilizadas</TypingAnimation>
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-center">
+                <CardTitle className="text-lg sm:text-xl">
+                  🎯 Objetivo da Atividade:
+                </CardTitle>
+                <Target className="ml-auto w-4 h-4" />
+              </div>
+            </CardHeader>
+            <CardContent className="flex flex-col text-base sm:text-lg">
+              <p className="py-2">
+                🪄 Este projeto consiste em um dashboard interativo desenvolvido
+                para visualização de dados de produção, como parte das
+                atividades acadêmicas da Escola e Faculdade SENAI "Félix
+                Guisard".
+              </p>
+              <p className="py-2">
+                🛠️ O dashboard foi desenvolvido para monitorar e visualizar
+                dados de um sistema de produção, oferecendo insights importantes
+                sobre o processo produtivo através de gráficos e métricas em
+                tempo real.
+              </p>
+            </CardContent>
 
-            <AnimatedSpan delay={1500} className="text-green-500">
-              <span>✔ shadcn/ui</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={2000} className="text-green-500">
-              <span>✔ Next.js.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={2500} className="text-green-500">
-              <span>✔ Tailwind CSS.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={3000} className="text-green-500">
-              <span>✔ MySQL.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={3500} className="text-green-500">
-              <span>✔ Magic UI.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={4000} className="text-green-500">
-              <span>✔ Fancy Components.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={5500} className="text-green-500">
-              <span>✔ Installing dependencies.</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={6000} className="text-blue-500">
-              <span>ℹ Updated 1 file:</span>
-              <span className="pl-2">- lib/brain.ts</span>
-            </AnimatedSpan>
-
-            <TypingAnimation delay={6500} className="text-muted-foreground">
-              Success! Project initialization completed.
-            </TypingAnimation>
-
-            <TypingAnimation delay={7000} className="text-muted-foreground">
-              You may now start coding.
-            </TypingAnimation>
-          </Terminal>
+            <section className="grid grid-cols-2 gap-4">
+              <div className="col-span-2 lg:col-span-1 grid grid-cols gap-4 py-4 sm:ml-4 p-4 overflow-x-auto rounded-xl">
+                <Terminal className="w-full min-w-[300px] sm:min-w-[400px] lg:min-w-[500px] rounded-xl shadow-[0_20px_50px_rgba(250,_128,_114,_0.7)] dark:shadow-none">
+                  <TypingAnimation>&gt; Tecnologias Utilizadas</TypingAnimation>
+                  <AnimatedSpan delay={1500} className="text-green-500">
+                    <span>✔ shadcn/ui</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2000} className="text-green-500">
+                    <span>✔ Next.js.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2500} className="text-green-500">
+                    <span>✔ Tailwind CSS.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={3000} className="text-green-500">
+                    <span>✔ MySQL.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={3500} className="text-green-500">
+                    <span>✔ Magic UI.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={4000} className="text-green-500">
+                    <span>✔ Fancy Components.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={5500} className="text-green-500">
+                    <span>✔ Installing dependencies.</span>
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={6000} className="text-blue-500">
+                    <span>ℹ Updated 1 file:</span>
+                    <span className="pl-2">- lib/brain.ts</span>
+                  </AnimatedSpan>
+                  <TypingAnimation
+                    delay={6500}
+                    className="text-muted-foreground"
+                  >
+                    Success! Project initialization completed.
+                  </TypingAnimation>
+                  <TypingAnimation
+                    delay={7000}
+                    className="text-muted-foreground"
+                  >
+                    You may now start coding.
+                  </TypingAnimation>
+                </Terminal>
+              </div>
+              <div className="col-span-2 lg:col-span-1 flex items-center justify-center py-4">
+                <Image
+                  src={cafeImage.src}
+                  alt="cafe"
+                  width={340}
+                  height={340}
+                  className="w-auto h-auto"
+                />
+              </div>
+            </section>
+          </Card>
         </motion.div>
       </section>
     </main>
