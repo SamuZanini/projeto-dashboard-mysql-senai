@@ -95,15 +95,18 @@ export default function Sistema() {
         transition={{ duration: 1.7 }}
         className="flex justify-center items-center gap-4 py-7 mb-8"
       >
-        <Carousel className="w-full max-w-4xl">
+        <Carousel className="w-full max-w-5xl">
           <CarouselContent>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-8">
-                    <span className="text-4xl font-semibold">
-                      substituir por imagem do sistema
-                    </span>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/system-front.jpg"
+                      alt="Descrição da Imagem"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </CardContent>
                 </Card>
               </div>
@@ -111,10 +114,13 @@ export default function Sistema() {
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-8">
-                    <span className="text-4xl font-semibold">
-                      substituir por imagem do sistema
-                    </span>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/system-back.jpg"
+                      alt="Sistema - Visão Back"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </CardContent>
                 </Card>
               </div>
@@ -122,10 +128,13 @@ export default function Sistema() {
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-8">
-                    <span className="text-4xl font-semibold">
-                      substituir por imagem do sistema
-                    </span>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/system-h.jpg"
+                      alt="Sistema - Visão H"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </CardContent>
                 </Card>
               </div>
@@ -133,10 +142,41 @@ export default function Sistema() {
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-8">
-                    <span className="text-4xl font-semibold">
-                      substituir por imagem do sistema
-                    </span>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/system-front.jpg"
+                      alt="Sistema - Visão Frontal"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/separacao-vav.jpg"
+                      alt="Sistema - VAV"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card>
+                  <CardContent className="relative overflow-hidden">
+                    <img
+                      src="/images/separacao-amarelo.jpg"
+                      alt="Sistema - Visão Frontal"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </CardContent>
                 </Card>
               </div>

@@ -20,7 +20,46 @@ import {
   TypingAnimation,
 } from "@/components/magicui/terminal";
 
+import { IconCloud } from "@/components/magicui/icon-cloud";
+
 export default function Inicio() {
+  const slugs = [
+    "typescript",
+    "javascript",
+    "dart",
+    "java",
+    "react",
+    "flutter",
+    "android",
+    "html5",
+    "css3",
+    "nodedotjs",
+    "express",
+    "nextdotjs",
+    "prisma",
+    "amazonaws",
+    "postgresql",
+    "firebase",
+    "nginx",
+    "vercel",
+    "testinglibrary",
+    "jest",
+    "cypress",
+    "docker",
+    "git",
+    "jira",
+    "github",
+    "gitlab",
+    "visualstudiocode",
+    "androidstudio",
+    "sonarqube",
+    "figma",
+  ];
+
+  const images = slugs.map(
+    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+  );
+
   return (
     <main className="sm:ml-14 p-4 min-h-screen">
       <motion.div
@@ -197,11 +236,9 @@ export default function Inicio() {
                 </Terminal>
               </div>
               <div className="col-span-2 lg:col-span-1 flex items-center justify-center py-4">
-                <img
-                  src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png"
-                  alt="cafe"
-                  className="w-auto h-auto"
-                />
+                <div className="relative flex size-full items-center justify-center overflow-hidden">
+                  <IconCloud images={images} />
+                </div>
               </div>
             </section>
             <div className="absolute bottom-0 left-0 right-0">

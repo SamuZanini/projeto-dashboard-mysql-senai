@@ -23,8 +23,7 @@ export default function Sistema() {
         "⚡ 1 peça de plástico média",
         "⚡ 1 peça de plástico grande",
       ],
-      image:
-        "https://img.freepik.com/fotos-premium/fundo-de-textura-de-papel-amarelo-de-estilo-industrial_469558-56771.jpg?semt=ais_hybrid",
+      image: "/images/peca-amarela.jpg",
     },
     {
       bgColor: "bg-red-600/15 backdrop-blur-md",
@@ -34,8 +33,7 @@ export default function Sistema() {
         "⚡ 2 peças de metal pequenas",
         "⚡ 2 peças de plástico grandes",
       ],
-      image:
-        "https://img.freepik.com/fotos-premium/resumo-de-fundo-vermelho-circular_8466-2.jpg?semt=ais_hybrid",
+      image: "/images/peca-vermelha.jpg",
     },
     {
       bgColor: "bg-blue-600/15 backdrop-blur-md",
@@ -45,8 +43,7 @@ export default function Sistema() {
         "⚡ 2 peças de plástico pequenas",
         "⚡ 2 peças de metal médias",
       ],
-      image:
-        "https://img.freepik.com/fotos-gratis/fundo-texturizado-abstrato_1258-30515.jpg",
+      image: "/images/peca-azul.jpg",
     },
     {
       bgColor: "bg-green-600/15 backdrop-blur-md",
@@ -56,8 +53,7 @@ export default function Sistema() {
         "⚡ 2 peças de plástico médias",
         "⚡ 2 peças de metal grandes",
       ],
-      image:
-        "https://img.freepik.com/fotos-premium/um-fundo-verde-com-um-fundo-verde-que-diz_867255-192.jpg",
+      image: "/images/peca-verde.jpg",
     },
   ];
 
@@ -107,8 +103,12 @@ export default function Sistema() {
                           ))
                         : description}
                     </div>
-                    <div className="w-full sm:w-1/2 rounded-xl aspect-video relative overflow-hidden">
-                      <img src={image} alt={title} className="object-cover" />
+                    <div className="w-full sm:w-1/2 rounded-3xl relative overflow-hidden h-full p-2">
+                      <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover rounded-3xl shadow-lg"
+                      />
                     </div>
                   </div>
                 </StackingCardItem>
