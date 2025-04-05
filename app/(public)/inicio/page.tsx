@@ -114,13 +114,25 @@ export default function Inicio() {
                 <CardDescription>Turma: 1° ADS 2025</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col text-base sm:text-lg font-bold">
-                <Link className="" href="https://github.com/SamuZanini">
+                <Link
+                  className=""
+                  target="_blank"
+                  href="https://github.com/SamuZanini"
+                >
                   <CenterUnderline label="☕ Samuel Zanini Campos Vanoni" />
                 </Link>
-                <Link className="" href="https://github.com/Nogueirajv0078">
+                <Link
+                  className=""
+                  target="_blank"
+                  href="https://github.com/Nogueirajv0078"
+                >
                   <CenterUnderline label="☕ João Vitor Nogueira Alves" />
                 </Link>
-                <Link className="" href="https://github.com/Murilomarques999">
+                <Link
+                  className=""
+                  target="_blank"
+                  href="https://github.com/Murilomarques999"
+                >
                   <CenterUnderline label="☕ Murilo Marques Dantas Vieira" />
                 </Link>
               </CardContent>
@@ -144,18 +156,21 @@ export default function Inicio() {
               <CardContent className="flex flex-col text-base sm:text-lg font-bold">
                 <Link
                   className=""
+                  target="_blank"
                   href="https://www.linkedin.com/in/alex-pisciotta-48866425/"
                 >
                   <CenterUnderline label="✒️ Alex Pisciotta" />
                 </Link>
                 <Link
                   className=""
+                  target="_blank"
                   href="https://www.linkedin.com/in/marcello-benevides/"
                 >
                   <CenterUnderline label="✒️ Marcello Tuba" />
                 </Link>
                 <Link
                   className=""
+                  target="_blank"
                   href="https://www.linkedin.com/in/marcio-nagy-it-strategy/"
                 >
                   <CenterUnderline label="✒️ Márcio Nagy" />
