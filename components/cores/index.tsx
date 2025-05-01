@@ -14,8 +14,13 @@ import * as React from "react";
 import { NumberTicker } from "../magicui/number-ticker";
 import PizzaChart from "../pizzaChart";
 
+interface Post {
+  cor: string;
+  total: number;
+}
+
 export default function Cores() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,7 +35,7 @@ export default function Cores() {
     fetchData();
   }, []);
 
-  const getTotalByColor = (color) => {
+  const getTotalByColor = (color: string) => {
     return posts
       .filter((post) => post.cor === color)
       .reduce((acc, post) => acc + post.total, 0);
@@ -97,7 +102,7 @@ export default function Cores() {
             </span>
           </div>
         </article>
-        <div className="py-20">
+        <div>
           <PizzaChart /> {/* Gráfico de Pizza */}
         </div>
       </CardContent>

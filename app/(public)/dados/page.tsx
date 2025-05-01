@@ -16,8 +16,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useState } from "react";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 
+interface Post {
+  total: number;
+  taxa_por_minuto: number;
+}
+
 export default function Dados() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,7 +54,9 @@ export default function Dados() {
             <CardContent className="text-base sm:text-3xl font-bold">
               <NumberTicker
                 value={
-                  posts.length && posts.length > 0 ? posts[0].total / 60 : 0
+                  posts.length && posts.length > 0
+                    ? posts[0].taxa_por_minuto
+                    : 0
                 }
                 decimalPlaces={2}
                 className="whitespace-pre-wrap text-4xl font-medium tracking-tighter text-black dark:text-white"

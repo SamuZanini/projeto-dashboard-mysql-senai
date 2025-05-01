@@ -22,13 +22,19 @@ import { NumberTicker } from "../magicui/number-ticker";
 import { useEffect, useState } from "react";
 
 export default function PizzaChart() {
-  const [posts, setPosts] = useState([]);
+  interface Post {
+    cor: string;
+    total_por_cor: number;
+    total_geral: number;
+  }
+
   interface ChartItem {
     browser: string;
     pecas: number;
     fill: string;
   }
 
+  const [posts, setPosts] = useState<Post[]>([]);
   const [chartData, setChartData] = useState<ChartItem[]>([]);
 
   useEffect(() => {
