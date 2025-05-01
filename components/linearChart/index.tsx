@@ -1,11 +1,10 @@
 "use client";
 
 import { BarChart2, TrendingUp } from "lucide-react";
-import { CartesianGrid, Dot, Line, LineChart } from "recharts";
+import { CartesianGrid, Dot, Line, LineChart, XAxis } from "recharts";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -17,35 +16,142 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
+import { Check, ChevronsUpDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import React, { useEffect, useState } from "react";
+
 export default function LinearChartOverview() {
-  const chartData = [
-    { browser: "Amarelo", visitors: 173, fill: "var(--color-Amarelo)" },
-    { browser: "Verelho", visitors: 187, fill: "var(--color-Verelho)" },
-    { browser: "Verde", visitors: 200, fill: "var(--color-Verde)" },
-    { browser: "Azul", visitors: 275, fill: "var(--color-Azul)" },
-  ];
+  const [openCor, setOpenCor] = React.useState(false);
+  const [openMaterial, setOpenMaterial] = React.useState(false);
+  const [openAltura, setOpenAltura] = React.useState(false);
+
+  const [selectedCor, setSelectedCor] = React.useState("");
+  const [selectedMaterial, setSelectedMaterial] = React.useState("");
+  const [selectedAltura, setSelectedAltura] = React.useState("");
+
+  interface Post {
+    data_hora: string;
+    total: number;
+  }
+
+  interface ChartItem {
+    date: string;
+    total: number;
+    fill: string;
+  }
+
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [chartData, setChartData] = useState<ChartItem[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const params = new URLSearchParams();
+
+        // Adiciona todos os filtros selecionados
+        if (selectedCor) params.append("cor", selectedCor);
+        if (selectedMaterial) params.append("material", selectedMaterial);
+        if (selectedAltura) params.append("altura", selectedAltura); // Corrigido de "Altura" para "altura"
+
+        console.log("Fetching with params:", params.toString());
+
+        const data = await fetch(`/api/filter?${params.toString()}`);
+        const response = await data.json();
+
+        if (response.error) {
+          console.error("API Error:", response.error);
+          return;
+        }
+
+        console.log("API Response:", response);
+        setPosts(response.posts);
+      } catch (error) {
+        console.error("Fetch Error:", error);
+      }
+    };
+
+    fetchData();
+  }, [selectedCor, selectedMaterial, selectedAltura]);
+
+  // Atualiza o gráfico quando os posts mudam
+  useEffect(() => {
+    if (posts.length > 0) {
+      const newChartData = posts.map((post) => ({
+        date: new Date(post.data).toLocaleDateString(),
+        total: post.total,
+        fill: `var(--color-${selectedCor || "default"})`,
+      }));
+      console.log("New Chart Data:", newChartData); // Debug
+      setChartData(newChartData);
+    }
+  }, [posts, selectedCor]);
+
   const chartConfig = {
-    visitors: {
-      label: "Total",
-      color: "#79cedb",
-    },
-    Amarelo: {
-      label: "Amarelo",
-      color: "#79cedb",
-    },
-    Verelho: {
-      label: "Verelho",
-      color: "#79cedb",
-    },
-    Verde: {
-      label: "Verde",
-      color: "#79cedb",
-    },
-    Azul: {
-      label: "Azul",
+    total: {
+      label: "Total de Peças",
       color: "#79cedb",
     },
   } satisfies ChartConfig;
+
+  const cor = [
+    {
+      value: "AMARELO",
+      label: "Amarelo",
+    },
+    {
+      value: "VERMELHO",
+      label: "Vermelho",
+    },
+    {
+      value: "VERDE",
+      label: "Verde",
+    },
+    {
+      value: "AZUL",
+      label: "Azul",
+    },
+  ];
+
+  const material = [
+    {
+      value: "METAL",
+      label: "Metal",
+    },
+    {
+      value: "PLASTICO",
+      label: "Plástico",
+    },
+  ];
+
+  const altura = [
+    {
+      value: "PEQUENO",
+      label: "Pequeno",
+    },
+    {
+      value: "MEDIO",
+      label: "Médio",
+    },
+    {
+      value: "GRANDE",
+      label: "Grande",
+    },
+  ];
+
   return (
     <Card className="w-full flex-1/12 md:w-1/2 min-h-[100px]">
       <CardHeader className="pb-2">
@@ -53,13 +159,170 @@ export default function LinearChartOverview() {
           <CardTitle className="text-lg sm:text-xl">
             Total de Peças Processadas
           </CardTitle>
+
+          <div className="flex items-center gap-2 pl-4">
+            <Popover open={openCor} onOpenChange={setOpenCor}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={openCor}
+                  className="w-[200px] justify-between"
+                >
+                  {selectedCor
+                    ? cor.find((s) => s.value === selectedCor)?.label
+                    : "Selecione uma cor..."}
+                  <ChevronsUpDown className="opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput
+                    placeholder="Procure uma cor..."
+                    className="h-9"
+                  />
+                  <CommandList>
+                    <CommandEmpty>Nenhuma cor encontrada.</CommandEmpty>
+                    <CommandGroup>
+                      {cor.map((cores) => (
+                        <CommandItem
+                          key={cores.value}
+                          value={cores.value}
+                          onSelect={(currentValue) => {
+                            setSelectedCor(
+                              currentValue === selectedCor ? "" : currentValue
+                            );
+                            setOpenCor(false);
+                          }}
+                        >
+                          {cores.label}
+                          <Check
+                            className={cn(
+                              "ml-auto",
+                              selectedCor === cores.value
+                                ? "opacity-100"
+                                : "opacity-0"
+                            )}
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+            <Popover open={openMaterial} onOpenChange={setOpenMaterial}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={openMaterial}
+                  className="w-[200px] justify-between"
+                >
+                  {selectedMaterial
+                    ? material.find((m) => m.value === selectedMaterial)?.label
+                    : "Selecione um material..."}
+                  <ChevronsUpDown className="opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput
+                    placeholder="Procure um material..."
+                    className="h-9"
+                  />
+                  <CommandList>
+                    <CommandEmpty>Nenhum material encontrado.</CommandEmpty>
+                    <CommandGroup>
+                      {material.map((materiais) => (
+                        <CommandItem
+                          key={materiais.value}
+                          value={materiais.value}
+                          onSelect={(currentValue) => {
+                            setSelectedMaterial(
+                              currentValue === selectedMaterial
+                                ? ""
+                                : currentValue
+                            );
+                            setOpenMaterial(false);
+                          }}
+                        >
+                          {materiais.label}
+                          <Check
+                            className={cn(
+                              "ml-auto",
+                              selectedMaterial === materiais.value
+                                ? "opacity-100"
+                                : "opacity-0"
+                            )}
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+            <Popover open={openAltura} onOpenChange={setOpenAltura}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={openAltura}
+                  className="w-[200px] justify-between"
+                >
+                  {selectedAltura
+                    ? altura.find((t) => t.value === selectedAltura)?.label
+                    : "Selecione um Altura..."}
+                  <ChevronsUpDown className="opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput
+                    placeholder="procure um Altura..."
+                    className="h-9"
+                  />
+                  <CommandList>
+                    <CommandEmpty>Nenhum Altura encontrado.</CommandEmpty>
+                    <CommandGroup>
+                      {altura.map((Alturas) => (
+                        <CommandItem
+                          key={Alturas.value}
+                          value={Alturas.value}
+                          onSelect={(currentValue) => {
+                            setSelectedAltura(
+                              currentValue === selectedAltura
+                                ? ""
+                                : currentValue
+                            );
+                            setOpenAltura(false);
+                          }}
+                        >
+                          {Alturas.label}
+                          <Check
+                            className={cn(
+                              "ml-auto",
+                              selectedAltura === Alturas.value
+                                ? "opacity-100"
+                                : "opacity-0"
+                            )}
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+          </div>
+
           <BarChart2 className="ml-auto h-4 w-4" />
         </div>
       </CardHeader>
       <CardContent className="py-1">
         <ChartContainer config={chartConfig} className="h-[350px] w-full">
           <LineChart
-            accessibilityLayer
             data={chartData}
             margin={{
               top: 8,
@@ -69,40 +332,26 @@ export default function LinearChartOverview() {
             }}
           >
             <CartesianGrid vertical={false} />
+            <XAxis dataKey="date" tickLine={false} axisLine={false} />
             <ChartTooltip
               cursor={false}
-              content={
-                <ChartTooltipContent
-                  indicator="line"
-                  nameKey="visitors"
-                  hideLabel
-                />
-              }
+              content={<ChartTooltipContent indicator="line" />}
             />
             <Line
-              dataKey="visitors"
-              type="natural"
-              stroke="var(--color-visitors)"
+              type="monotone"
+              dataKey="total"
+              stroke={chartConfig.total.color}
               strokeWidth={2}
-              dot={({ payload, ...props }) => {
-                return (
-                  <Dot
-                    key={payload.browser}
-                    r={5}
-                    cx={props.cx}
-                    cy={props.cy}
-                    fill={payload.fill}
-                    stroke={payload.fill}
-                  />
-                );
-              }}
+              dot={true}
+              connectNulls={true} // Adiciona esta propriedade
+              activeDot={{ r: 6 }} // Melhora a visualização do ponto ativo
             />
           </LineChart>
         </ChartContainer>
       </CardContent>
       <CardFooter className="pt-2">
         <div className="flex gap-2 font-medium leading-none">
-          Total de peças (todas as cores) <TrendingUp className="h-4 w-4" />
+          Total de peças (com filtro) <TrendingUp className="h-4 w-4" />
         </div>
       </CardFooter>
     </Card>
