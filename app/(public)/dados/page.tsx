@@ -13,8 +13,25 @@ import {
 import { Factory, Pickaxe } from "lucide-react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useEffect, useState } from "react";
+import { NumberTicker } from "@/components/magicui/number-ticker";
 
 export default function Dados() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetch("/api/posts");
+        const response = await data.json();
+        setPosts(response.posts);
+        console.log(response.posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <ScrollArea className="relative h-screen w-screen rounded-md border">
       <main className="sm:ml-14 p-4">
@@ -29,8 +46,15 @@ export default function Dados() {
                 Total de peças produzidas por minuto:
               </CardDescription>
             </CardHeader>
-            <CardContent className="text-base sm:text-lg font-bold">
-              inserir dados do banco aqui, quantidade de peças dividido por 60
+            <CardContent className="text-base sm:text-3xl font-bold">
+              <NumberTicker
+                value={
+                  posts.length && posts.length > 0 ? posts[0].total / 60 : 0
+                }
+                decimalPlaces={2}
+                className="whitespace-pre-wrap text-4xl font-medium tracking-tighter text-black dark:text-white"
+              />{" "}
+              Peças por minuto!
             </CardContent>
           </Card>
           <Card>
@@ -43,17 +67,21 @@ export default function Dados() {
               </div>
               <CardDescription>Total de peças produzidas:</CardDescription>
             </CardHeader>
-            <CardContent className="text-base sm:text-lg font-bold">
-              inserir dados do banco aqui, quantidade de peças produzidas
+            <CardContent className="text-base sm:text-3xl font-bold">
+              <NumberTicker
+                value={posts.length && posts.length > 0 ? posts[0].total : 0}
+                className="whitespace-pre-wrap text-4xl font-medium tracking-tighter text-black dark:text-white"
+              />{" "}
+              Peças produzidas!
             </CardContent>
           </Card>
         </section>
         <section className="mt-4 flex flex-col md:flex-row gap-4">
-          <ChartOverview />
-          <Cores />
+          <ChartOverview /> {/* Gráfico de Barras */}
+          <Cores /> {/* Gráfico de Pizza */}
         </section>
         <section className="mt-4 flex gap-4">
-          <LinearChartOverview />
+          <LinearChartOverview /> {/* Gráfico Linear */}
         </section>
       </main>
     </ScrollArea>
