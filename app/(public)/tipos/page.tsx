@@ -12,7 +12,8 @@ import { motion } from "motion/react";
 export default function Sistema() {
   const cards = [
     {
-      bgColor: "bg-yellow-400/15 backdrop-blur-md",
+      bgColor:
+        "bg-[rgba(120,120,40,0.85)] border border-[rgba(120,120,40,0.29)] shadow-lg rounded-3xl", // removido backdrop-blur-2xl
       title: "🍌 Peças Amarelas",
       description: [
         "As peças amarelas são compostas por 6 unidades, sendo elas:",
@@ -26,7 +27,8 @@ export default function Sistema() {
       image: "/images/peca-amarela.jpg",
     },
     {
-      bgColor: "bg-red-600/15 backdrop-blur-md",
+      bgColor:
+        "bg-[rgba(100,30,30,0.85)] border border-[rgba(100,30,30,0.29)] shadow-lg rounded-3xl",
       title: "🍉 Peças Vermelhas",
       description: [
         "As peças vermelhas são compostas por 4 unidades, sendo elas:",
@@ -36,7 +38,8 @@ export default function Sistema() {
       image: "/images/peca-vermelha.jpg",
     },
     {
-      bgColor: "bg-blue-600/15 backdrop-blur-md",
+      bgColor:
+        "bg-[rgba(30,60,90,0.85)] border border-[rgba(30,60,90,0.29)] shadow-lg rounded-3xl",
       title: "🫐 Peças Azuis",
       description: [
         "As peças azuis são compostas por 4 unidades, sendo elas:",
@@ -46,7 +49,8 @@ export default function Sistema() {
       image: "/images/peca-azul.jpg",
     },
     {
-      bgColor: "bg-green-600/15 backdrop-blur-md",
+      bgColor:
+        "bg-[rgba(30,80,30,0.85)] border border-[rgba(30,80,30,0.29)] shadow-lg rounded-3xl",
       title: "🍋‍🟩 Peças Verdes",
       description: [
         "As peças verdes são compostas por 4 unidades, sendo elas:",
@@ -90,7 +94,9 @@ export default function Sistema() {
                   <div
                     className={cn(
                       bgColor,
-                      "h-[80%] sm:h-[70%] flex-col sm:flex-row gap-8 aspect-video px-8 py-10 flex w-11/12 rounded-3xl mx-auto relative backdrop-filter"
+                      "backdrop-blur-3xl",
+                      "h-[80%] sm:h-[70%] flex-col sm:flex-row gap-8 aspect-video px-8 py-10 flex w-11/12 mx-auto relative",
+                      "shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
                     )}
                   >
                     <div className="space-y-2 flex-1">
