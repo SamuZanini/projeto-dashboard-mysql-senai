@@ -85,6 +85,8 @@ export default function LinearChartOverview() {
     };
 
     fetchData();
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
   }, [selectedCor, selectedMaterial, selectedAltura]);
 
   // Atualiza o gráfico quando os posts mudam

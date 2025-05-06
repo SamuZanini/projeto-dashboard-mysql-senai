@@ -60,6 +60,8 @@ export default function Cores() {
       }
     };
     fetchData();
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   const getTotalByColor = (color: string) => {
