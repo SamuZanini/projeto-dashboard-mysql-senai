@@ -6,12 +6,14 @@ export async function GET() {
     const db = await createConnection();
     const sql = `
       SELECT 
-        material,
-        cor,
+        m.material,
+        c.cor,
         COUNT(*) as total_por_tipo
-      FROM tb_dadosprojeto 
-      GROUP BY material, cor
-      ORDER BY cor, material
+      FROM tb_prod p
+      JOIN tb_material m ON p.material = m.id_material
+      JOIN tb_cor c ON p.cor = c.id_cor
+      GROUP BY m.material, c.cor
+      ORDER BY c.id_cor, m.id_material
     `;
     const [posts] = await db.query(sql);
     return NextResponse.json({ posts: posts });

@@ -57,7 +57,7 @@ export default function ChartOverview() {
           acc[cor].plastico = post.total_por_tipo;
         }
         return acc;
-      }, {});
+      }, {} as Record<string, ChartItem>);
 
       setChartData(Object.values(processedData));
     }

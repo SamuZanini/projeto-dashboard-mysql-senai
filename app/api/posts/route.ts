@@ -7,8 +7,8 @@ export async function GET() {
     const sql = `
       SELECT 
         COUNT(*) as total,
-        COUNT(*) / (TIMESTAMPDIFF(MINUTE, MIN(data_hora), MAX(data_hora))) as taxa_por_minuto
-      FROM tb_dadosprojeto
+        COUNT(*) / GREATEST(TIMESTAMPDIFF(MINUTE, MIN(data_hora), MAX(data_hora)), 1) as taxa_por_minuto
+      FROM tb_prod
     `;
     const [posts] = await db.query(sql);
     return NextResponse.json({ posts: posts });

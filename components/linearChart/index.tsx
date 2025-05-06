@@ -109,45 +109,45 @@ export default function LinearChartOverview() {
 
   const cor = [
     {
-      value: "AMARELO",
+      value: "2", // amarelo
       label: "Amarelo",
     },
     {
-      value: "VERMELHO",
+      value: "3", // vermelho
       label: "Vermelho",
     },
     {
-      value: "VERDE",
+      value: "1", // verde
       label: "Verde",
     },
     {
-      value: "AZUL",
+      value: "4", // azul
       label: "Azul",
     },
   ];
 
   const material = [
     {
-      value: "METAL",
+      value: "1", // metal
       label: "Metal",
     },
     {
-      value: "PLASTICO",
+      value: "2", // plástico
       label: "Plástico",
     },
   ];
 
   const altura = [
     {
-      value: "PEQUENO",
+      value: "1", // pequeno
       label: "Pequeno",
     },
     {
-      value: "MEDIO",
+      value: "2", // médio
       label: "Médio",
     },
     {
-      value: "GRANDE",
+      value: "3", // grande
       label: "Grande",
     },
   ];

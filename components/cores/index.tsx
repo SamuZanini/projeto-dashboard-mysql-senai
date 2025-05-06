@@ -19,6 +19,33 @@ interface Post {
   total: number;
 }
 
+const CORES = [
+  {
+    nome: "amarelo",
+    label: "Amarelo",
+    fallback: "AM",
+    img: "https://img.freepik.com/fotos-premium/fundo-de-textura-de-papel-amarelo-de-estilo-industrial_469558-56771.jpg?semt=ais_hybrid",
+  },
+  {
+    nome: "vermelho",
+    label: "Vermelho",
+    fallback: "VM",
+    img: "https://img.freepik.com/fotos-premium/resumo-de-fundo-vermelho-circular_8466-2.jpg?semt=ais_hybrid",
+  },
+  {
+    nome: "verde",
+    label: "Verde",
+    fallback: "VD",
+    img: "https://img.freepik.com/fotos-premium/um-fundo-verde-com-um-fundo-verde-que-diz_867255-192.jpg",
+  },
+  {
+    nome: "azul",
+    label: "Azul",
+    fallback: "AZ",
+    img: "https://img.freepik.com/fotos-gratis/fundo-texturizado-abstrato_1258-30515.jpg",
+  },
+];
+
 export default function Cores() {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
@@ -37,7 +64,7 @@ export default function Cores() {
 
   const getTotalByColor = (color: string) => {
     return posts
-      .filter((post) => post.cor === color)
+      .filter((post) => post.cor.toLowerCase() === color)
       .reduce((acc, post) => acc + post.total, 0);
   };
 
@@ -52,56 +79,23 @@ export default function Cores() {
       </CardHeader>
 
       <CardContent>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://img.freepik.com/fotos-premium/fundo-de-textura-de-papel-amarelo-de-estilo-industrial_469558-56771.jpg?semt=ais_hybrid" />
-            <AvatarFallback>AM</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Amarelo</p>
-            <span className="text-[14px] sm:text-sm">
+        {CORES.map((cor) => (
+          <article
+            key={cor.nome}
+            className="flex items-center gap-2 border-b py-2"
+          >
+            <Avatar className="w-8 h-8">
+              <AvatarImage src={cor.img} />
+              <AvatarFallback>{cor.fallback}</AvatarFallback>
+            </Avatar>
+            <div>
+              <p className="text-sm sm:text-base font-semibold">{cor.label}</p>
               <span className="text-[14px] sm:text-sm">
-                <NumberTicker value={getTotalByColor("AMARELO")} /> Peças!
+                <NumberTicker value={getTotalByColor(cor.nome)} /> Peças!
               </span>
-            </span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://img.freepik.com/fotos-premium/resumo-de-fundo-vermelho-circular_8466-2.jpg?semt=ais_hybrid" />
-            <AvatarFallback>VM</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Vermelho</p>
-            <span className="text-[14px] sm:text-sm">
-              <NumberTicker value={getTotalByColor("VERMELHO")} /> Peças!
-            </span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://img.freepik.com/fotos-premium/um-fundo-verde-com-um-fundo-verde-que-diz_867255-192.jpg" />
-            <AvatarFallback>VD</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Verde</p>
-            <span className="text-[14px] sm:text-sm">
-              <NumberTicker value={getTotalByColor("VERDE")} /> Peças!
-            </span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://img.freepik.com/fotos-gratis/fundo-texturizado-abstrato_1258-30515.jpg" />
-            <AvatarFallback>AZ</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Azul</p>
-            <span className="text-[14px] sm:text-sm">
-              <NumberTicker value={getTotalByColor("AZUL")} /> Peças!
-            </span>
-          </div>
-        </article>
+            </div>
+          </article>
+        ))}
         <div>
           <PizzaChart /> {/* Gráfico de Pizza */}
         </div>
